@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Slangify",
+  "version": "1.0",
+  "description": "Give the Web Some Attitude!\nTired of the same old boring text on webpages? Slangify lets you flip the script and rewrite the internet in the most outrageous, hilarious, and downright entertaining ways!\nSwap out everyday words with curated slang packs like Redneck Twang, Valley Girl Sass, Gen-Z Speak, Cowboy Drawl, and more—because reading should never be boring. Whether you want your news feed sounding like a rodeo announcer or your favorite blog dripping with Gen-Z lingo, Slangify makes it happen with a single click.",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "background": {
+    "service_worker": "src/background.js"
+  },
+  "host_permissions": [
+    "<all_urls>"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "src/language_packs/gen_z_translation.js",
+        "src/language_packs/valley_girl_translation.js",
+        "src/language_packs/pirate_translation.js",
+        "src/language_packs/cat_translation.js",
+        "src/language_packs/cowboy_translation.js",
+        "src/language_packs/old_english_translation.js",
+        "src/language_packs/eli5_translation.js",
+        "src/language_packs/overly_complicated_translation.js",
+        "src/language_packs/aussie_translation.js",
+        "src/language_packs/redneck_translation.js",
+        "src/language_packs/cholo_translation.js",
+        "src/content.js"
+      ]
+    }
+  ],
+  "action": {
+    "default_popup": "src/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [{
+    "resources": ["icons/*.png"],
+    "matches": ["<all_urls>"]
+  }]
+}
